@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Node - {% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block middle_left %}
+    <div class="bbs-box">
+        <div class="bbs-node-header clearfix">
+            <img class="bbs-node-avatar wi-left" src="/static/img/node_python.png"/>
+            <div class="wi-right">
+                <span class="bbs-color-fade">主题总数</span>
+                <span class="bbs-color-gray bbs-font-bold">5711</span>
+            </div>
+            <div class="bbs-node-title">
+                <a href="#">V2EX</a> › Node名
+            </div>
+            <div class="bbs-node-intro">
+                这里讨论各种 Python 语言编程话题，也包括 Django，Tornado 等框架的讨论。这里是一个能够帮助你解决实际问题的地方。
+            </div>
+
+        </div>
+        <div class="bbs-node-topic-list">
+            <div class="bbs-node-topic-cell bbs-line-top clearfix">
+                <img class="bbs-user-avatar-big wi-left" src="/static/img/user1.png" alt="" />
+                <a class="bbs-node-topic-cell-count wi-right" href="#">
+                    17
+                </a>
+                <a class="bbs-node-topic-cell-title" href="#">简单的利用 Logistic 训练的因子模型 年化超额 alpha 超过 20%</a>
+                <div class="bbs-node-topic-cell-info">
+                    <a class="bbs-font-bold" href="#">user</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp; time</span>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
+                    <a class="bbs-font-bold" href="#">user1</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block middle_right %}
+    {{ super() }}
+{% endblock %}
