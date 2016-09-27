@@ -26,7 +26,7 @@
             {{ topic.content }}
         </div>
     </div>
-    {% if topic.comments %}
+    {% if topic.comments.count() > 0 %}
     <div class="bbs-box bbs-margin-top">
         <div class="bbs-color-gray bbs-cell">
             {{ topic.comments.count() }}回复 &nbsp;|&nbsp; 直到{{ topic.comments[-1].created_time }}
