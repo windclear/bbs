@@ -16,6 +16,7 @@ from routes.user import main as routes_user
 from routes.index import main as routes_index
 from routes.node import main as routes_node
 from routes.topic import main as routes_topic
+from routes.comment import main as routes_comment
 
 app = Flask(__name__)
 db_path = 'data.sqlite'
@@ -28,6 +29,7 @@ def register_routes(app):
     app.register_blueprint(routes_index)
     app.register_blueprint(routes_node, url_prefix='/node')
     app.register_blueprint(routes_topic, url_prefix='/topic')
+    app.register_blueprint(routes_comment, url_prefix='/comment')
 
 
 def configure_app():

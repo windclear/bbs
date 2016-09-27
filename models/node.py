@@ -11,7 +11,7 @@ class Node(db.Model, ModelMixin):
     avatar = db.Column(db.String())
     introduction = db.Column(db.String())
 
-    topics = db.relationship('Topic', backref="node")
+    topics = db.relationship('Topic', backref="node", lazy='dynamic')
 
     def __init__(self, form):
         self.created_time = timestamp()

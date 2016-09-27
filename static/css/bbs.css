@@ -215,7 +215,30 @@ a:hover {
 }
 
 
-
+.bbs-comment-info {
+    margin: 0 0 5px 53px;
+}
+.bbs-comment-content {
+    margin: 0 0 0 53px;
+    font-size: 16px;
+}
+.bbs-comment-no {
+    padding: 2px 5px;
+    font-size: 9px;
+    color: #ccc;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.bbs-comment-empty {
+    padding: 10px;
+    font-size: 12px;
+    background-color: transparent;
+    border: 2px dashed #d8d7d0;
+    border-radius: 3px;
+    text-align: center;
+    color: #bdbcb6;
+}
 
 
 

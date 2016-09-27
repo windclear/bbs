@@ -14,7 +14,7 @@ class Topic(db.Model, ModelMixin):
     node_id = db.Column(db.Integer, db.ForeignKey('nodes.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    comments = db.relationship('Comment', backref="topic")
+    comments = db.relationship('Comment', backref="topic", lazy='dynamic')
 
     def __init__(self, form):
         self.created_time = timestamp()

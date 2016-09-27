@@ -11,7 +11,7 @@
         <div class="bbs-topic-header clearfix">
             <img class="bbs-user-avatar-large wi-right" src="{{ topic.user.avatar }}" />
             <div class="bbs-topic-link">
-                <a href="/">V2EX</a> › <a href="#">{{ topic.node_id }}</a>
+                <a href="/">V2EX</a> › <a href="{{url_for('node.show', id=topic.node_id)}}">{{ topic.node.name }}</a>
             </div>
             <div class="bbs-topic-title">
                 {{ topic.title }}
@@ -26,12 +26,47 @@
             {{ topic.content }}
         </div>
     </div>
+    {% if topic.comments %}
     <div class="bbs-box bbs-margin-top">
-        <div class="">
-
+        <div class="bbs-color-gray bbs-cell">
+            {{ topic.comments.count() }}回复 &nbsp;|&nbsp; 直到{{ topic.comments[-1].created_time }}
         </div>
-        回复
+        {% for m in topic.comments %}
+        <div class="bbs-comment-cell bbs-cell bbs-line-top clearfix">
+            <img class="bbs-user-avatar-middle wi-left" src="{{ m.user.avatar }}" alt="" />
+            <div class="bbs-comment-no wi-right">
+                {{ loop.index }}
+            </div>
+            <div class="bbs-comment-info">
+                <a class="bbs-font-bold" href="#">{{ m.user.username }}</a>
+                <span class="bbs-color-fade">&nbsp; {{ m.created_time }}</span>
+            </div>
+            <div class="bbs-comment-content">
+                {{ m.content }}
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <div class="bbs-comment-empty bbs-margin-top">
+        目前尚无回复
+    </div>
+    {% endif %}
+    {% if c_user %}
+    <div class="bbs-box bbs-margin-top">
+        <div class="bbs-cell">
+            添加一条新回复
+        </div>
+        <div class="bbs-cell bbs-line-top">
+            <form action="{{ url_for('comment.add') }}" method="post">
+                <input class="wi-hide" type="text" name="user_id" value="{{ c_user.id }}">
+                <input class="wi-hide" type="text" name="topic_id" value="{{ topic.id }}">
+                <input type="text" name="content" placeholder="内容">
+                <button type="submit" name="button">回复</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}
 
 {% block middle_right %}

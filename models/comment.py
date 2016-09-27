@@ -14,3 +14,7 @@ class Comment(db.Model, ModelMixin):
 
     def __init__(self, form):
         self.created_time = timestamp()
+        self.content = form.get('content', '')
+        self.user_id = form.get('user_id', 0)
+        self.topic_id = form.get('topic_id', 0)
+
