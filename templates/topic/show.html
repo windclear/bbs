@@ -9,22 +9,21 @@
 {% block middle_left %}
     <div class="bbs-box">
         <div class="bbs-topic-header clearfix">
-            <img class="bbs-user-avatar-large wi-right" src="/static/img/user1.png" />
+            <img class="bbs-user-avatar-large wi-right" src="{{ topic.user.avatar }}" />
             <div class="bbs-topic-link">
-                <a href="#">V2EX</a> › <a href="#">Node名</a>
+                <a href="/">V2EX</a> › <a href="#">{{ topic.node_id }}</a>
             </div>
             <div class="bbs-topic-title">
-                python 命令为何无法在 cmd 直接执行？
+                {{ topic.title }}
             </div>
             <div class="bbs-topic-info bbs-color-gray">
-                <a href="#">user</a>
-                <span> · 9 小时 42 分钟前用 iPhone 发布 · </span>
+                <a href="#">{{ topic.user.username }}</a>
+                <span> · {{ topic.created_time }} · </span>
                 <span>1071次点击</span>
             </div>
         </div>
         <div class="bbs-topic-content bbs-cell bbs-line-top">
-            win10 64 位之前装 3.5.2 的时候勾选 path ，可以直接运行。
-            卸载之后安装 3.4.4 ，就提示无法运行应用（非无效命令），再装回 3.5.2 也一样不行了，也添加过环境变量一样不行。 但是管理员模式运行可以。
+            {{ topic.content }}
         </div>
     </div>
     <div class="bbs-box bbs-margin-top">

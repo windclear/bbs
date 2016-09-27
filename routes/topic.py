@@ -23,3 +23,10 @@ def add():
     m = Model(form)
     m.save()
     return redirect('/')
+
+
+@main.route('/<int:id>')
+def show(id):
+    u = current_user()
+    m = Model.query.get(id)
+    return render_template('topic/show.html', c_user=u, topic=m)

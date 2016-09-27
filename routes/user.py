@@ -56,7 +56,7 @@ def register():
         status, msgs = u.valid()
         if status:
             u.save()
-            return redirect(url_for('.login_view'))
+            return redirect(url_for('.login'))
     return render_template('user/register.html', message=msgs)
 
 

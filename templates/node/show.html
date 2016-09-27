@@ -15,27 +15,30 @@
                 <span class="bbs-color-gray bbs-font-bold">5711</span>
             </div>
             <div class="bbs-node-title">
-                <a href="#">V2EX</a> › Node名
+                <a href="/">V2EX</a> › {{ node.name }}
             </div>
             <div class="bbs-node-intro">
-                这里讨论各种 Python 语言编程话题，也包括 Django，Tornado 等框架的讨论。这里是一个能够帮助你解决实际问题的地方。
+                {{ node.introduction }}
             </div>
-
         </div>
         <div class="bbs-node-topic-list">
+            {% for t in node.topics %}
             <div class="bbs-node-topic-cell bbs-line-top clearfix">
-                <img class="bbs-user-avatar-big wi-left" src="/static/img/user1.png" alt="" />
+                <img class="bbs-user-avatar-big wi-left" src="{{ t.user.avatar }}" alt="" />
                 <a class="bbs-node-topic-cell-count wi-right" href="#">
                     17
                 </a>
-                <a class="bbs-node-topic-cell-title" href="#">简单的利用 Logistic 训练的因子模型 年化超额 alpha 超过 20%</a>
+                <a class="bbs-node-topic-cell-title" href="{{ url_for('topic.show', id=t.id) }}">{{ t.title }}</a>
                 <div class="bbs-node-topic-cell-info">
-                    <a class="bbs-font-bold" href="#">user</a>
-                    <span class="bbs-color-fade">&nbsp;•&nbsp; time</span>
-                    <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
-                    <a class="bbs-font-bold" href="#">user1</a>
+                    <a href="{{ url_for('node.show', id=t.node_id) }}">{{ t.node.name }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp;</span>
+                    <a class="bbs-font-bold" href="#">{{ t.user.username }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp; {{ t.created_time }}</span>
+                    <!-- <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
+                    <a class="bbs-font-bold" href="#">user1</a> -->
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
