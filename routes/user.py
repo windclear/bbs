@@ -60,9 +60,12 @@ def register():
     return render_template('user/register.html', message=msgs)
 
 
-@main.route('/logout', methods=['POST'])
+@main.route('/logout')
 def logout():
-    pass
+    session.pop('user_id', None)
+    return redirect('/')
+
+
 # @main.route('/register', methods=['POST'])
 # def register():
 #     form = request.form
