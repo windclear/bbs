@@ -20,3 +20,5 @@ class Topic(db.Model, ModelMixin):
         self.created_time = timestamp()
         self.title = form.get('title', '')
         self.content = form.get('content', '')
+        self.node_id = form.get('node_id', 0)
+        self.user_id = form.get('user_id', 0)

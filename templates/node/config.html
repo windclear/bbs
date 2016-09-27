@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block middle_left %}
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <form action="{{ url_for('node.add') }}" method="post">
+                <input type="text" name="nodename" placeholder="节点名">
+                <input type="text" name="introduction" placeholder="节点简介">
+                <button type="submit">添加</button>
+            </form>
+        </div>
+        <div class="">
+            {% for n in nodes %}
+            <div class="bbs-cell bbs-line-top">
+                {{ n.name }}
+                {{ n.introduction }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block middle_right %}
+    {{ super() }}
+{% endblock %}

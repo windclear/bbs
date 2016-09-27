@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}新主题 - {% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block middle_left %}
+    <div class="bbs-box">
+        <div class="bbs-topic-new">
+            <form class="" action="{{ url_for('topic.add') }}" method="post">
+                <input class="wi-hide" type="text" name="user_id" value="{{ c_user.id }}">
+                <input type="text" name="title" placeholder="标题" required="required">
+                <input type="text" name="content" placeholder="内容" required="required">
+                <select name="node_id">
+                    {% for n in nodes %}
+                    <option value="{{ n.id }}">{{ n.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" name="button">创建新主题</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block middle_right %}
+    {{ super() }}
+{% endblock %}

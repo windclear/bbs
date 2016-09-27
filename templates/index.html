@@ -7,7 +7,35 @@
 {% endblock %}
 
 {% block middle_left %}
+    <div class="bbs-box">
+        <div class="bbs-node-nav">
+            {% for n in nodes %}
+            <a href="#">{{ n.name }}</a>
+            {% endfor %}
+        </div>
+        <div class="bbs-node-topic-list">
+            {% for t in topics %}
+            <div class="bbs-node-topic-cell bbs-line-top clearfix">
+                <img class="bbs-user-avatar-middle wi-left" src="/static/img/user1.png" alt="" />
+                <a class="bbs-node-topic-cell-count wi-right" href="#">
+                    17
+                </a>
+                <a class="bbs-node-topic-cell-title" href="#">{{ t.title }}</a>
+                <div class="bbs-node-topic-cell-info">
+                    <a href="#">{{ t.node_id }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp;</span>
+                    <a class="bbs-font-bold" href="#">{{ t.user_id }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp;{{ t.created_time }}</span>
+                    <!-- <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
+                    <a class="bbs-font-bold" href="#">user1</a> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="bbs-box">
 
+    </div>
 {% endblock %}
 
 {% block middle_right %}

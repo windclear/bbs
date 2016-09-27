@@ -10,7 +10,7 @@ class Comment(db.Model, ModelMixin):
     content = db.Column(db.String())
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    topic_id = db.Column(db.Integer, db.ForeignKey('topic.id'))
+    topic_id = db.Column(db.Integer, db.ForeignKey('topics.id'))
 
     def __init__(self, form):
         self.created_time = timestamp()

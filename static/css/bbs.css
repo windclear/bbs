@@ -16,6 +16,9 @@ a:hover {
     display: block;
     clear: both;
 }
+.wi-hide {
+    display: none !important;
+}
 .wi-flex {
     display: flex;
 }
@@ -65,18 +68,66 @@ a:hover {
 .bbs-margin-top {
     margin-top: 20px;
 }
-
-
-
+.bbs-common-header {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 120%
+}
+.bbs-user-log {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 120%
+}
+.bbs-user-log input {
+    display: block;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    outline: none;
+}
+.bbs-user-log button {
+    font-weight: bold;
+}
+.bbs-user-log-msg {
+    padding: 10px;
+    font-size: 12px;
+    border-left: 5px solid #fff000;
+    background-color: #ffffc0;
+}
 .bbs-user-avatar-large {
     width: 73px;
     height: 73px;
     border-radius: 4px;
 }
+.bbs-user-avatar-middle {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+.bbs-username {
+    font-size: 18px;
+    padding: 0px 10px;
+}
 
 
-
-
+.bbs-node-nav {
+    padding: 10px;
+    font-size: 13px;
+    line-height: 150%;
+}
+.bbs-node-nav a {
+    padding: 5px 8px 5px 8px;
+    margin-right: 5px;
+    border-radius: 3px;
+    color: #555;
+}
+.bbs-node-nav a:hover {
+    background-color: #f5f5f5;
+    color: #000;
+    text-decoration: none;
+}
 .bbs-node-header {
     padding: 10px;
     text-align: left;
@@ -143,6 +194,14 @@ a:hover {
     color: #000;
 }
 
+.bbs-topic-new {
+    padding: 10px;
+
+}
+.bbs-topic-new input {
+    display: block;
+    margin: 10px 0;
+}
 
 
 
