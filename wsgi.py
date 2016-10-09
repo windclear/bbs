@@ -1,8 +1,11 @@
-import app as bbs
+#!/usr/bin/env python3
 
-app = bbs.configured_app()
+import sys
+from os.path import abspath
+from os.path import dirname
 
-# gunicorn appcorn:app
-# nohup gunicorn -b '0.0.0.0:80' appcorn:app &
+sys.path.insert(0, abspath(dirname(__file__)))
 
-# wsgi
+from app import configured_app
+
+application = configured_app()
