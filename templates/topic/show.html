@@ -17,7 +17,7 @@
                 {{ topic.title }}
             </div>
             <div class="bbs-topic-info bbs-color-gray">
-                <a href="#">{{ topic.user.username }}</a>
+                <a href="{{ url_for('user.show', id=topic.user_id) }}">{{ topic.user.username }}</a>
                 <span> · {{ topic.created_time }} · </span>
                 <span>1071次点击</span>
             </div>
@@ -38,7 +38,7 @@
                 {{ loop.index }}
             </div>
             <div class="bbs-comment-info">
-                <a class="bbs-font-bold" href="#">{{ m.user.username }}</a>
+                <a class="bbs-font-bold" href="{{ url_for('user.show', id=m.user_id) }}">{{ m.user.username }}</a>
                 <span class="bbs-color-fade">&nbsp; {{ m.created_time }}</span>
             </div>
             <div class="bbs-comment-content">

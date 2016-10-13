@@ -17,7 +17,7 @@
                 <div class="bbs-top-nav wi-right">
                     <a href="/">首页</a>
                     {% if c_user %}
-                        <a >{{ c_user.username }}</a>
+                        <a href="{{ url_for('user.show', id=c_user.id) }}">{{ c_user.username }}</a>
                         <a href="{{ url_for('user.logout') }}">登出</a>
                     {% else %}
                         <a href="{{ url_for('user.register') }}">注册</a>
@@ -40,7 +40,7 @@
                         {% if c_user %}
                             <div class="bbs-cell clearfix">
                                 <img class="bbs-user-avatar-middle wi-left" src="{{ c_user.avatar }}" alt="" />
-                                <a class="bbs-username">{{ c_user.username }}</a>
+                                <a class="bbs-username" href="{{ url_for('user.show', id=c_user.id) }}">{{ c_user.username }}</a>
                             </div>
                             <div class="bbs-cell bbs-line-top bbs-text-center">
                                 <a href="{{ url_for('topic.new') }}">创作新主题</a>

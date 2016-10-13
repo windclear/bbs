@@ -32,7 +32,7 @@
                 <div class="bbs-node-topic-cell-info">
                     <a href="{{ url_for('node.show', id=t.node_id) }}">{{ t.node.name }}</a>
                     <span class="bbs-color-fade">&nbsp;•&nbsp;</span>
-                    <a class="bbs-font-bold" href="#">{{ t.user.username }}</a>
+                    <a class="bbs-font-bold" href="{{ url_for('user.show', id=t.user_id) }}">{{ t.user.username }}</a>
                     <span class="bbs-color-fade">&nbsp;•&nbsp; {{ t.created_time }}</span>
                     <!-- <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
                     <a class="bbs-font-bold" href="#">user1</a> -->
