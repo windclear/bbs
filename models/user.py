@@ -1,7 +1,7 @@
 from . import ModelMixin
 from . import db
 from . import timestamp
-
+import urllib, hashlib
 
 class User(db.Model, ModelMixin):
     __tablename__ = 'users'
@@ -20,7 +20,7 @@ class User(db.Model, ModelMixin):
         self.created_time = timestamp()
         self.username = form.get('username', '')
         self.password = form.get('password', '')
-        self.avatar = '/static/img/default_user.png'
+        self.avatar = self.random_avatar()
         self.introduction = form.get('introduction', '')
 
     def validate_login(self, u):
@@ -46,3 +46,11 @@ class User(db.Model, ModelMixin):
         #     msgs.append(message)
         status = valid_username and valid_username_len and valid_password_len
         return status, msgs
+
+    def random_avatar(self):
+        username = self.username.encode('utf-8')
+        default = 'retro'
+        size = 80
+        gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(username.lower()).hexdigest() + "?"
+        gravatar_url += 's={}&d={}'.format(size, default)
+        return gravatar_url

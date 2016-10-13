@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Node - {% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block middle_left %}
+    <div class="bbs-box">
+        <div class="bbs-node-header clearfix">
+            <img class="bbs-user-avatar-large wi-left" src="{{ user.avatar }}" alt="" />
+            <div class="bbs-node-title">
+                {{ user.username }}
+            </div>
+            <div class="bbs-node-intro">
+                第 {{ user.id }} 号会员
+            </div>
+        </div>
+    </div>
+    <div class="bbs-box bbs-margin-top">
+        <div class="bbs-node-topic-list">
+            {% for t in user.topics %}
+            <div class="bbs-node-topic-cell bbs-line-top clearfix">
+                <img class="bbs-user-avatar-middle wi-left" src="{{ t.user.avatar }}" alt="" />
+                <a class="bbs-node-topic-cell-count wi-right" href="{{ url_for('topic.show', id=t.id) }}">
+                    {{ t.comments.count() }}
+                </a>
+                <a class="bbs-node-topic-cell-title" href="{{ url_for('topic.show', id=t.id) }}">{{ t.title }}</a>
+                <div class="bbs-node-topic-cell-info">
+                    <a href="{{ url_for('node.show', id=t.node_id) }}">{{ t.node.name }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp;</span>
+                    <a class="bbs-font-bold" href="#">{{ t.user.username }}</a>
+                    <span class="bbs-color-fade">&nbsp;•&nbsp; {{ t.created_time }}</span>
+                    <!-- <span class="bbs-color-fade">&nbsp;•&nbsp; 最后回复来自</span>
+                    <a class="bbs-font-bold" href="#">user1</a> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block middle_right %}
+    {{ super() }}
+{% endblock %}

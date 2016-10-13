@@ -66,6 +66,13 @@ def logout():
     return redirect('/')
 
 
+@main.route('/<int:id>')
+def show(id):
+    cu = current_user()
+    u = Model.query.get(id)
+    return render_template('user/show.html', c_user=cu, user=u)
+
+
 # @main.route('/register', methods=['POST'])
 # def register():
 #     form = request.form

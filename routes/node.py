@@ -2,6 +2,7 @@ from models.node import Node
 from routes import *
 from routes.user import current_user
 
+from functools import wraps
 
 main = Blueprint('node', __name__)
 
@@ -9,7 +10,19 @@ main = Blueprint('node', __name__)
 Model = Node
 
 
+def admin_required(f):
+    @wraps(f)
+    def function(*args, **kwargs):
+        # print('admin required')
+        if current_user().id != 1:
+            # print('not admin')
+            abort(404)
+        return f(*args, **kwargs)
+    return function
+
+
 @main.route('/config')
+@admin_required
 def config():
     cu = current_user()
     ns = Model.query.all()
@@ -17,6 +30,7 @@ def config():
 
 
 @main.route('/add', methods=['POST'])
+@admin_required
 def add():
     form = request.form
     m = Model(form)
